@@ -1,0 +1,26 @@
+21  ansible demo -a"sudo yum install httpd -y"
+   22  ls
+   23  ansible demo -a"sudo yum remove httpd -y"
+   24  ansible demo -b -m yum -a"pkg=httpd state=present"
+   25  ansible demo -b -m service -a"name=httpd state=started"
+   26  ansible demo -b -a"service httpd status"
+   27  history
+   28  #See apache status via modules
+   29  ansible demo -b -m command -a"service httpd status"
+   30  ansible demo -b -m command -a"service httpd start"
+   31  ansible demo -b -m command -a"service httpd stop"
+   32  ansible demo -b -m command -a"service httpd status"
+   33  ansible demo -m command -a"ls"
+   34  history
+   35  #i want to create a file with name akshatfile.txt with content akshat is teaching devopos in nodes
+   36  ansible demo -m command -a"ls"
+   37  ansible demo -m copy -a 'content="akshat is teaching devops" dest=akshatfile.txt'
+   38  ansible demo -m command -a"ls"
+   39  ansible demo -b -m command -a"cat akshatfile.txt"
+   40  history
+   41  vi app.conf
+   42  #your Manager gave you a file named app.conf which consist of configuration of your system . how will you use that gcopy it to nodes
+   43  ansible demo -b -m ansible.builtin.copy -a"src=/home/ansible/app.conf dest=/home/ansible/"
+   44  ansible demo -m command -a"ls"
+   45  ls
+   46  ansible demo -b -m copy -a"src=/home/ansible/app.conf dest=/home/ansible/"
